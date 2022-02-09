@@ -31,10 +31,23 @@ export const fetchComputers = () => {
         )
 }
 
+export const fetchDepartments = () => {
+    return fetch(`${API}/departments`)
+        .then(response => response.json())
+        .then(
+            (departments) => {
+                applicationState.departments = departments
+            }
+        )
+}
+
 //exports copies of database arrays
 export const getEmployees = () => {
     return applicationState.employees.map(employee => ({...employee}))
 }
 export const getComputers = () => {
     return applicationState.computers.map(computer => ({...computer}))
+}
+export const getDepartments = () => {
+    return applicationState.departments.map(department => ({...department}))
 }
