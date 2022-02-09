@@ -1,4 +1,4 @@
-import { fetchComputers, fetchDepartments, fetchEmployees, fetchLocations } from "./dataAccess.js";
+import { fetchComputers, fetchCustomers, fetchDepartments, fetchEmployeeCustomers, fetchEmployees, fetchLocations } from "./dataAccess.js";
 import { ThreeBlindMice } from "./ThreeBlindMice.js"
 
 //targets main container to render in index.html
@@ -10,6 +10,8 @@ const render = () => {
     .then(() => fetchComputers())
     .then(() => fetchDepartments())
     .then(() => fetchLocations())
+    .then(() => fetchCustomers())
+    .then(() => fetchEmployeeCustomers())
     .then(() => {
         mainContainer.innerHTML = ThreeBlindMice()
     })

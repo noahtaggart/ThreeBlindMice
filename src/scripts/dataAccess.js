@@ -51,6 +51,26 @@ export const fetchLocations = () => {
     )
 }
 
+export const fetchCustomers = () => {
+    return fetch(`${API}/customers`)
+    .then(response => response.json())
+    .then(
+        (customers) => {
+            applicationState.customers = customers
+        }
+    )
+}
+
+export const fetchEmployeeCustomers = () => {
+    return fetch(`${API}/employeeCustomers`)
+    .then(response => response.json())
+    .then(
+        (employeeCustomers) => {
+            applicationState.employeeCustomers = employeeCustomers
+        }
+    )
+}
+
 //exports copies of database arrays
 export const getEmployees = () => {
     return applicationState.employees.map(employee => ({...employee}))
@@ -63,4 +83,10 @@ export const getDepartments = () => {
 }
 export const getLocations = () => {
     return applicationState.locations.map(location => ({...location}))
+}
+export const getCustomers = () => {
+    return applicationState.customers.map(customer => ({...customer}))
+}
+export const getEmployeeCustomers = () => {
+    return applicationState.employeeCustomers.map(employeeCustomer => ({...employeeCustomer}))
 }
