@@ -41,6 +41,16 @@ export const fetchDepartments = () => {
         )
 }
 
+export const fetchLocations = () => {
+    return fetch(`${API}/locations`)
+    .then(response => response.json())
+    .then(
+        (locations) => {
+            applicationState.locations = locations
+        }
+    )
+}
+
 //exports copies of database arrays
 export const getEmployees = () => {
     return applicationState.employees.map(employee => ({...employee}))
@@ -50,4 +60,7 @@ export const getComputers = () => {
 }
 export const getDepartments = () => {
     return applicationState.departments.map(department => ({...department}))
+}
+export const getLocations = () => {
+    return applicationState.locations.map(location => ({...location}))
 }
